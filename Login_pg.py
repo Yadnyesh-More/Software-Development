@@ -23,21 +23,20 @@ class Ui_Dialog(object):
         self.setup_sign_up_frame()
         
     def rgister_button_show_nm(self):
-        if self.new_email_entry == " " and self.new_password_entry == " " and self.confirm_password_entry == " ":
-            QMessageBox.critical(self, "Error", "Please fill all the fields")
-            # if self.confirm_password_entry == self.new_password_entry:
-            #      QMessageBox.warning(self, "Error", "pasword and new password isn't matching ")
+        if (self.new_email_entry.text() == "" or
+            self.new_password_entry.text() == "" or
+            self.confirm_password_entry.text() == ""):
+            QMessageBox.critical(self.Dialog, "Error", "Please fill all the fields")
         else:
-            if self.confirm_password_entry != self.new_password_entry:
-                 QMessageBox.warning(self, "Error", "pasword and new password isn't matching ")
+            if self.confirm_password_entry.text() != self.new_password_entry.text():
+                QMessageBox.warning(self.Dialog, "Error", "Password and confirm password don't match")
             else:
-                self.sign_up_pop_up = QMessageBox.information(None, "Sign Up", "Sign Up is succesfull ")
+                QMessageBox.information(self.Dialog, "Sign Up", "Sign Up is successful")
                 print(self.new_email_entry.text())
                 print(self.new_password_entry.text())
                 print(self.confirm_password_entry.text())
                 self.backen_pymysql()
-        
-        
+
         
     def login_button_show_nm(self):
         if self.Email_entry == " " and self.Password_entry == " ":
