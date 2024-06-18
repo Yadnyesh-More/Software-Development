@@ -1,15 +1,8 @@
-################################################################################
-## Form generated from reading UI file 'designerxCNqeW.ui'
-##
-## Created by: Qt User Interface Compiler version 6.7.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect)
 from PySide6.QtGui import (QFont)
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QLabel, QLineEdit, QPushButton,QMessageBox)
 import pymysql as psql 
+import re
 
 class Ui_Dialog(object):
     # def __init__(self):
@@ -17,6 +10,7 @@ class Ui_Dialog(object):
     def mysql(self):
         self.a = psql.connect(host='localhost',user="root",password="root",charset='utf8',port=3307,database="test")
         self.curr = self.a.cursor()
+
 
     def backen_pymysql(self): # Yadynesh tu ithun code kr pymysql cha hya function mdhe 
         self.mysql()
@@ -42,24 +36,30 @@ class Ui_Dialog(object):
             self.new_password_entry.text() == "" or
             self.confirm_password_entry.text() == ""):
             QMessageBox.critical(self.Dialog, "Error", "Please fill all the fields")
+            
         else:
-            if self.confirm_password_entry.text() != self.new_password_entry.text():
-                QMessageBox.warning(self.Dialog, "Error", "Password and confirm password don't match")
-
-            else:
-                self.mysql()
-                q = "SELECT * FROM users WHERE email = %s"
-                self.curr.execute(q, (self.new_email_entry.text()))
-                self.result = self.curr.fetchone()
-                if self.result is not None:
-                    self.login_up_pop_up = QMessageBox.critical(None,"Result", "Account exist, Please SignIn! ")
+            pat = re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+            if pat.match(self.new_email_entry.text()):
+                print("Valid Email")
+                if self.confirm_password_entry.text() != self.new_password_entry.text():
+                    QMessageBox.warning(self.Dialog, "Error", "Password and confirm password don't match")
 
                 else:
-                    QMessageBox.information(self.Dialog, "Sign Up", "Sign Up is successful")
-                    print(self.new_email_entry.text())
-                    print(self.new_password_entry.text())
-                    print(self.confirm_password_entry.text())
-                    self.backen_pymysql()
+                    self.mysql()
+                    q = "SELECT * FROM users WHERE email = %s"
+                    self.curr.execute(q, (self.new_email_entry.text()))
+                    self.result = self.curr.fetchone()
+                    if self.result is not None:
+                        self.login_up_pop_up = QMessageBox.critical(None,"Result", "Account exist, Please SignIn! ")
+
+                    else:
+                        QMessageBox.information(self.Dialog, "Sign Up", "Sign Up is successful")
+                        print(self.new_email_entry.text())
+                        print(self.new_password_entry.text())
+                        print(self.confirm_password_entry.text())
+                        self.backen_pymysql()
+            else:
+                self.login_pop_up = QMessageBox.critical(None, "Error", "Please Enter Valid Email !!")
 
         
     def login_button_show_nm(self):
@@ -67,8 +67,8 @@ class Ui_Dialog(object):
             self.login_pop_up = QMessageBox.critical(None, "Login", "Login is unsuccesfull plzz Enter")
         else:
             self.mysql()
-            q = "SELECT * FROM users WHERE email = %s"
-            self.curr.execute(q, (self.Email_entry.text()))
+            q = "SELECT * FROM users WHERE email = %s and password = %s"
+            self.curr.execute(q, (self.Email_entry.text(),self.Password_entry.text()))
             self.result = self.curr.fetchone()
             if self.result is None:
                 self.login_up_pop_up = QMessageBox.critical(None,"Result", "Account not exist, Please Create Account!")
