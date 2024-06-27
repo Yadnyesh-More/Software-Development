@@ -9,6 +9,10 @@ import pymysql as psql
 import re
 import random
 from twilio.rest import Client
+import smtplib
+from email.message import EmailMessage
+
+
 
 class LoginWidget(QWidget):
     def __init__(self, parent=None):
@@ -172,10 +176,11 @@ class MainWindow(QWidget):
             global send_otp
             if self.phone:
                 Pat = re.compile("(0|91)?[6-9][0-9]{9}")
+                pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+
                 if(re.fullmatch(Pat,str(self.phone))): 
-                    #user_otp = self.otp_1+self.otp_2+self.otp_3+self.otp_4
                     account_sid = "ACbfc61c85346b4518d9d030c896509b26"
-                    auth_token = "c5a34114f2f6ad5136e663c31539aa2e"
+                    auth_token = "386a826cd361e4bdd5e5648fadbfb187"
                     print("Otp sent")
                     #b = False
                     #print(user_otp)
@@ -205,8 +210,46 @@ class MainWindow(QWidget):
 
                         else:
                             print("Errorrrrrrrrrrrrrrrrrrrrrrr")
+                #else:
+                #    QMessageBox.warning(None,"Error","Enter Valid No !!! ")
+
+                if (re.fullmatch(pattern,str(self.phone))):
+                    print("sucess")
+                    if self.otp_1 == '' and self.otp_2 == '' and self.otp_3 == '' and self.otp_4 == '':
+                        print("hello")
+                        send_otp = random.randint(1000,9999)
+                        server = smtplib.SMTP("smtp.gmail.com",587)
+                        server.starttls()
+
+                        from_mail = "middleman3701@gmail.com"
+                        server.login(from_mail, "wtkh syvj zptd elfa")
+                        to_mail = self.phone
+
+                        msg = EmailMessage()
+                        msg['Subject'] = "OTP Verification"
+                        msg['From'] = from_mail
+                        msg['To'] = to_mail
+                        msg.set_content(f"Your OTP is : {send_otp}")
+
+                        server.send_message(msg)
+
+                        print("Email Sent")
+                        print(send_otp)
+                    else:
+                        user_otp = self.otp_1+self.otp_2+self.otp_3+self.otp_4
+                        if str(user_otp) == str(send_otp):
+                                self.mysql()
+                                #q = "update login set phone_no = %s where email_id=%s "
+                                #self.curr.execute(q,(self.phone,self.login_email))
+                                #self.a.commit()
+                                
+                                self.central_widget.setCurrentWidget(self.reset_pass_page_widget)
+
+                                self.update_window_title("Reset Password Page") 
+                        else:
+                                print("Errorrrrrrrrrrrrrrrrrrrrrrr")
                 else:
-                    QMessageBox.warning(None,"Error","Enter Valid No !!! ")
+                    print("error")
 
         
 
@@ -325,3 +368,4 @@ if __name__ == "__main__":
     window.show()
 
     sys.exit(app.exec())
+
