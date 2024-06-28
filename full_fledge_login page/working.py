@@ -100,11 +100,11 @@ class MainWindow(QWidget):
 
         self.login_page_widget.ui.signupbutton.clicked.connect(self.show_signup_page)
 
-        self.signup_page_widget.ui.backbutton.clicked.connect(self.show_login_page)
+        self.signup_page_widget.ui.backbutton.clicked.connect(self.login_page)
 
         self.login_page_widget.ui.forgetpassbutton.clicked.connect(self.show_forget_pass_page)
 
-        self.forget_pass_page_widget.ui.backbutton.clicked.connect(self.show_login_page) # this are  moving to the reset page 
+        self.forget_pass_page_widget.ui.backbutton.clicked.connect(self.login_page) # this are  moving to the reset page 
         
         self.reset_pass_page_widget.ui.backbutton.clicked.connect(self.show_forget_pass_page) # Newly addes by the sanki
         
@@ -116,7 +116,7 @@ class MainWindow(QWidget):
         
         self.login_page_widget.ui.loginbutton.clicked.connect(self.for_login) # This are calling the login function after clicking the login button
 
-        self.signup_page_widget.ui.signupbutton.clicked.connect(self.show_login_page)
+        self.signup_page_widget.ui.alrdy_button.clicked.connect(self.login_page) # done change
         
         self.signup_page_widget.ui.register_button.clicked.connect(self.for_signup) # This are calling the signup function after click the signup page
 
@@ -127,10 +127,16 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
     def mysql(self):
-        self.a = psql.connect(host="localhost",port=3307,user="root",password="root",charset="utf8")
+        self.a = psql.connect(host="localhost",port=3306,user="root",password="root",charset="utf8")
         self.curr = self.a.cursor()
         self.curr.execute("create database if not exists MIddleman")
         self.curr.execute("use MIddleman")
+
+    def login_page(self):
+        self.central_widget.setCurrentWidget(self.login_page_widget)
+
+        self.update_window_title("Login Page")
+
 
     def show_login_page(self):
         password = self.reset_pass_page_widget.ui.email_entry.text()
