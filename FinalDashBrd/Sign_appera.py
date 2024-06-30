@@ -148,7 +148,7 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
     def mysql(self):
-        self.a = psql.connect(host="localhost",port=3306,user="root",password="root",charset="utf8")
+        self.a = psql.connect(host="localhost",port=3307,user="root",password="root",charset="utf8")
         self.curr = self.a.cursor()
         self.curr.execute("create database if not exists MIddleman")
         self.curr.execute("use MIddleman")
@@ -382,6 +382,8 @@ MiddleMan Broker
                     QMessageBox.warning(None,"Error","Entered email is not register !! ")
                 else:
                     QMessageBox.information(None,"Result","Login sucessful ")
+                    self.window_closer()
+
             else:
                 QMessageBox.warning(None,"Error","please Enter Email in right format !!") 
 
@@ -410,20 +412,31 @@ MiddleMan Broker
             if self.result is not None:
                 QMessageBox.warning(None, "Result", "Account exists, Please Sign In!")
             else:
-                if self.password == self.confirm_pass:
-                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
-                    if(re.fullmatch(pattern, self.email)):
-                        #verify email
-                        self.curr.execute("insert into login(Email_id,password) values(%s,%s)",(self.email,self.confirm_pass))
-                        self.a.commit()
-                        QMessageBox.information(None,"Result","Signup Succesfully , Please Login ")
-                        self.central_widget.setCurrentWidget(self.login_page_widget)
-                        self.update_window_title("Login Page")
+                if len(self.password)>=6:
+                    if not re.search("[a-z]", self.password):
+                        if not re.search("[A-Z]", self.password):
+                            if not re.search("[0-9]", self.password):
+                                if self.password == self.confirm_pass:
+                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+                                    if(re.fullmatch(pattern, self.email)):
+                                        #verify email
+                                        self.curr.execute("insert into login(Email_id,password) values(%s,%s)",(self.email,self.confirm_pass))
+                                        self.a.commit()
+                                        QMessageBox.information(None,"Result","Signup Succesfully , Please Login ")
+                                        self.central_widget.setCurrentWidget(self.login_page_widget)
+                                        self.update_window_title("Login Page")
+                                    else:
+                                        QMessageBox.warning(None,"Error","please Enter Email in right format !!") 
+                                else:
+                                    QMessageBox.warning(None,"Error","please Enter same password in both entry !!") 
+                            else:
+                               QMessageBox.warning(None,"Error","Password should have at least one digit. Please try again.!!!")
+                        else:
+                            QMessageBox.warning(None,"Error","Password should have at least one uppercase letter. Please try again.!!!")
                     else:
-                        QMessageBox.warning(None,"Error","please Enter Email in right format !!") 
+                        QMessageBox.warning(None,"Error","Password should have at least one lowercase letter. Please try again. !!!") 
                 else:
-                    QMessageBox.warning(None,"Error","please Enter same password in both entry !!") 
-
+                    QMessageBox.warning(None,"Error","Password should be at least 6 characters long. Please try again. !!!")
 
     def closeAllWindows(self):
 
