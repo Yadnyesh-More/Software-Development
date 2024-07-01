@@ -16,6 +16,7 @@ from twilio.rest import Client
 import smtplib
 from email.message import EmailMessage
 from IPython.display import display, HTML
+import subprocess
 
 
 
@@ -130,6 +131,8 @@ class MainWindow(QWidget):
         self.signup_page_widget.ui.sig_up_close_bar.clicked.connect(self.window_closer)
         
         self.login_page_widget.ui.login_window_closer.clicked.connect(self.window_closer)
+
+        self.login_page_widget.ui.login_window_closer.clicked.connect(self.closer)
         
         self.login_page_widget.ui.loginbutton.clicked.connect(self.for_login) # This are calling the login function after clicking the login button
 
@@ -148,7 +151,7 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
     def mysql(self):
-        self.a = psql.connect(host="localhost",port=3307,user="root",password="root",charset="utf8")
+        self.a = psql.connect(host="localhost",port=3306,user="root",password="root",charset="utf8")
         self.curr = self.a.cursor()
         self.curr.execute("create database if not exists MIddleman")
         self.curr.execute("use MIddleman")
@@ -281,6 +284,17 @@ MiddleMan Broker
         self.central_widget.setCurrentWidget(self.login_page_widget)
 
         self.update_window_title("Login Page")
+
+    def closer(self):
+        reply = QMessageBox.question(self, 'Window Close', 'Are you sure you want to close the window?',
+                                 QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            #window.close()
+            self.dash = subprocess.run(['python', 'DashBaord.py'])
+        else:
+            print("No")
+            window.close()
+            self.login_page()
 
 
     def show_login_page(self):
