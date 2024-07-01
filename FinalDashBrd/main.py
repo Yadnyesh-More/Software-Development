@@ -1,10 +1,3 @@
-################################################################################
-##
-## BY: WANDERSON M.PIMENTA
-## PROJECT MADE WITH: Qt Designer and PySide2
-## V: 1.0.0
-##  
-################################################################################
 import subprocess
 import sys
 import platform
@@ -12,18 +5,11 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide6.QtWidgets import *
-# from Dashbaord import Ui_MainWindow
+sys.path.insert(1, r"C:\MemoFull\Codes\PySide6\FinalDashBrd\Useless")
+from progress_bar import *
 
-## ==> SPLASH SCREEN
-from ui_progressbar import *
-
-## ==> MAIN WINDOW
-# from ui_untitled_app import ui_mainapp
-
-## ==> GLOBALS
 counter = 0
-
-# YOUR APPLICATION
+# Sanket changed
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -94,7 +80,7 @@ class Ui_MainWindow(QMainWindow):
 
             # SHOW MAIN WINDOW
             self.close()
-            self.signup = subprocess.run(['python', 'Sign_appera.py'])
+            self.signup = subprocess.run(['python', 'sign_main.py'])
             # self.signup.close()
             self.dash = subprocess.run(['python', 'DashBaord.py'])
             # self.main = MainWindow()
@@ -110,5 +96,5 @@ class Ui_MainWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = Ui_MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 #

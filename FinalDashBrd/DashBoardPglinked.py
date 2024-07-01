@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLineEdit,
     QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
     QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
-from Sign_upFn import *
+from sign_main import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):

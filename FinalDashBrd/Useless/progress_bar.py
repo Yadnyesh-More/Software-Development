@@ -79,18 +79,10 @@ class Ui_Progressbar(object):
     # setupUi
 
     def retranslateUi(self, Progressbar):
-        Progressbar.setWindowTitle(QCoreApplication.translate("Progressbar", u"MainWindow", None))
+        icon = QIcon("images/prof_pic.png")
+        Progressbar.setWindowIcon(icon)
+        Progressbar.setWindowTitle(QCoreApplication.translate("Progressbar", u"Progreebar", None))
         self.label_title.setText(QCoreApplication.translate("Progressbar", u"<strong>M</strong>iddle <strong>M</strong>an", None))
         self.label_description.setText(QCoreApplication.translate("Progressbar", u"<strong>Ghar</strong> Lo <strong>Ghar</strong> Do", None))
         self.label_3.setText(QCoreApplication.translate("Progressbar", u"loading", None))
     # retranslateUi
-    
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    Progressbar = QMainWindow()
-    ui = Ui_Progressbar()
-    ui.setupUi(Progressbar)
-    Progressbar.show()
-    sys.exit(app.exec())
-    
