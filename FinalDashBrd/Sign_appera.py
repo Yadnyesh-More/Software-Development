@@ -151,7 +151,7 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
     def mysql(self):
-        self.a = psql.connect(host="localhost",port=3306,user="root",password="root",charset="utf8")
+        self.a = psql.connect(host="localhost",port=3307,user="root",password="root",charset="utf8")
         self.curr = self.a.cursor()
         self.curr.execute("create database if not exists MIddleman")
         self.curr.execute("use MIddleman")
@@ -293,7 +293,7 @@ MiddleMan Broker
             self.dash = subprocess.run(['python', 'DashBaord.py'])
         else:
             print("No")
-            window.close()
+            #window.close()
             self.login_page()
 
 
@@ -397,6 +397,7 @@ MiddleMan Broker
                 else:
                     QMessageBox.information(None,"Result","Login sucessful ")
                     self.window_closer()
+                    self.dash = subprocess.run(['python', 'DashBaord.py'])
 
             else:
                 QMessageBox.warning(None,"Error","please Enter Email in right format !!") 
