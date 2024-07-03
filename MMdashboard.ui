@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1023</width>
+    <width>966</width>
     <height>624</height>
    </rect>
   </property>
@@ -100,7 +100,7 @@ font-weight:bold;
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 170, 0);</string>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -210,7 +210,7 @@ font-weight:bold;
          <x>20</x>
          <y>86</y>
          <width>140</width>
-         <height>271</height>
+         <height>401</height>
         </rect>
        </property>
        <property name="minimumSize">
@@ -235,14 +235,15 @@ font-weight:bold;
        <property name="styleSheet">
         <string notr="true">QToolBox:tab{
 	background-color:rgb(0, 170, 0);
-padding-left:20px;
+	color: rgb(0, 0, 0);
+padding-left:10px;
 border-top-left-radius:10px;
 border-bottom-left-radius:10px;
 
 }</string>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <property name="tabSpacing">
         <number>22</number>
@@ -253,13 +254,17 @@ border-bottom-left-radius:10px;
           <x>0</x>
           <y>0</y>
           <width>140</width>
-          <height>121</height>
+          <height>151</height>
          </rect>
         </property>
+        <attribute name="icon">
+         <iconset>
+          <normaloff>C:/Users/Shivam/Downloads/zoom-in.png</normaloff>C:/Users/Shivam/Downloads/zoom-in.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>New Project</string>
         </attribute>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -301,16 +306,16 @@ font-weight:bold;
 }</string>
             </property>
             <property name="text">
-             <string>  Mumbai</string>
+             <string>Mumbai</string>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../Sidebar/slidemenubar/dashboard_white.png</normaloff>../Sidebar/slidemenubar/dashboard_white.png</iconset>
+              <normaloff>C:/Users/Shivam/Downloads/location.png</normaloff>C:/Users/Shivam/Downloads/location.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>20</width>
-              <height>20</height>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -344,16 +349,16 @@ font-weight:bold;
 }</string>
             </property>
             <property name="text">
-             <string>  Thane</string>
+             <string>Thane</string>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../Sidebar/slidemenubar/profile_white.png</normaloff>../Sidebar/slidemenubar/profile_white.png</iconset>
+              <normaloff>C:/Users/Shivam/Downloads/location.png</normaloff>C:/Users/Shivam/Downloads/location.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>20</width>
-              <height>20</height>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -387,16 +392,16 @@ font-weight:bold;
 }</string>
             </property>
             <property name="text">
-             <string>  Pune</string>
+             <string>Pune</string>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../Sidebar/slidemenubar/messages_white.png</normaloff>../Sidebar/slidemenubar/messages_white.png</iconset>
+              <normaloff>C:/Users/Shivam/Downloads/location.png</normaloff>C:/Users/Shivam/Downloads/location.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>20</width>
-              <height>20</height>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -416,19 +421,23 @@ font-weight:bold;
           <x>0</x>
           <y>0</y>
           <width>140</width>
-          <height>121</height>
+          <height>151</height>
          </rect>
         </property>
+        <attribute name="icon">
+         <iconset>
+          <normaloff>C:/Users/Shivam/Downloads/center.png</normaloff>C:/Users/Shivam/Downloads/center.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Other Services</string>
         </attribute>
         <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
-           <x>0</x>
+           <x>-3</x>
            <y>0</y>
-           <width>160</width>
-           <height>121</height>
+           <width>142</width>
+           <height>161</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -436,11 +445,54 @@ font-weight:bold;
            <number>0</number>
           </property>
           <property name="leftMargin">
-           <number>15</number>
+           <number>0</number>
           </property>
           <property name="topMargin">
            <number>0</number>
           </property>
+          <item>
+           <widget class="QPushButton" name="Messages_3">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QPushButton:checked{
+background-color:rgb(30, 81, 40);
+color:white;
+font-weight:bold;
+}
+
+QPushButton:hover{
+background-color:;
+	color: rgb(0, 111, 0);
+color:white;
+font-weight:bold;
+}</string>
+            </property>
+            <property name="text">
+             <string>Plumbing</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/washing-removebg-preview (1).png</normaloff>C:/Users/Shivam/Downloads/washing-removebg-preview (1).png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QPushButton" name="Dashboard_3">
             <property name="font">
@@ -466,10 +518,14 @@ font-weight:bold;
             <property name="text">
              <string>Interior Design</string>
             </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/paint-removebg-preview.png</normaloff>C:/Users/Shivam/Downloads/paint-removebg-preview.png</iconset>
+            </property>
             <property name="iconSize">
              <size>
-              <width>0</width>
-              <height>0</height>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -503,12 +559,16 @@ font-weight:bold;
 }</string>
             </property>
             <property name="text">
-             <string>   Ac Services</string>
+             <string>Ac Services</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/svg-removebg-preview.png</normaloff>C:/Users/Shivam/Downloads/svg-removebg-preview.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>0</width>
-              <height>0</height>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -520,7 +580,7 @@ font-weight:bold;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="Messages_3">
+           <widget class="QPushButton" name="Dashboard_5">
             <property name="font">
              <font>
               <pointsize>11</pointsize>
@@ -542,12 +602,16 @@ font-weight:bold;
 }</string>
             </property>
             <property name="text">
-             <string>      Pune</string>
+             <string>Carpentry</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/construction-removebg-preview.png</normaloff>C:/Users/Shivam/Downloads/construction-removebg-preview.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>20</width>
-              <height>20</height>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -562,6 +626,18 @@ font-weight:bold;
         </widget>
        </widget>
        <widget class="QWidget" name="page_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>140</width>
+          <height>151</height>
+         </rect>
+        </property>
+        <attribute name="icon">
+         <iconset>
+          <normaloff>C:/Users/Shivam/Downloads/documentation.png</normaloff>C:/Users/Shivam/Downloads/documentation.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Agreements</string>
         </attribute>
@@ -571,7 +647,7 @@ font-weight:bold;
            <x>-10</x>
            <y>0</y>
            <width>160</width>
-           <height>121</height>
+           <height>3107</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -607,12 +683,16 @@ font-weight:bold;
 }</string>
             </property>
             <property name="text">
-             <string>   Rent Reciept</string>
+             <string>Rent Reciept</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/note-removebg-preview.png</normaloff>C:/Users/Shivam/Downloads/note-removebg-preview.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>0</width>
-              <height>0</height>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -646,7 +726,7 @@ font-weight:bold;
 }</string>
             </property>
             <property name="text">
-             <string>   Ac Services</string>
+             <string>Tenant Verification</string>
             </property>
             <property name="iconSize">
              <size>
@@ -691,6 +771,232 @@ font-weight:bold;
              <size>
               <width>20</width>
               <height>20</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_3">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>3000</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="page_4">
+        <attribute name="icon">
+         <iconset>
+          <normaloff>C:/Users/Shivam/Downloads/money-removebg-preview.png</normaloff>C:/Users/Shivam/Downloads/money-removebg-preview.png</iconset>
+        </attribute>
+        <attribute name="label">
+         <string>Click and Earn</string>
+        </attribute>
+        <widget class="QPushButton" name="Dashboard_6">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>0</y>
+           <width>141</width>
+           <height>33</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QPushButton:checked{
+background-color:rgb(30, 81, 40);
+color:white;
+font-weight:bold;
+}
+
+QPushButton:hover{
+background-color:;
+	color: rgb(0, 111, 0);
+color:white;
+font-weight:bold;
+}</string>
+         </property>
+         <property name="text">
+          <string>Click Here...</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="page_5">
+        <attribute name="icon">
+         <iconset>
+          <normaloff>C:/Users/Shivam/Downloads/smartphone.png</normaloff>C:/Users/Shivam/Downloads/smartphone.png</iconset>
+        </attribute>
+        <attribute name="label">
+         <string> Others</string>
+        </attribute>
+        <widget class="QWidget" name="layoutWidget_3">
+         <property name="geometry">
+          <rect>
+           <x>-4</x>
+           <y>-7</y>
+           <width>160</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_22">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="Dashboard_7">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QPushButton:checked{
+background-color:rgb(30, 81, 40);
+color:white;
+font-weight:bold;
+}
+
+QPushButton:hover{
+background-color:;
+	color: rgb(0, 111, 0);
+color:white;
+font-weight:bold;
+}</string>
+            </property>
+            <property name="text">
+             <string>Feedback</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/rating-removebg-preview.png</normaloff>C:/Users/Shivam/Downloads/rating-removebg-preview.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="Profile_5">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QPushButton:checked{
+background-color:rgb(30, 81, 40);
+color:white;
+font-weight:bold;
+}
+
+QPushButton:hover{
+background-color:;
+	color: rgb(0, 111, 0);
+color:white;
+font-weight:bold;
+}</string>
+            </property>
+            <property name="text">
+             <string>Contact Us</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/phone.png</normaloff>C:/Users/Shivam/Downloads/phone.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="Messages_5">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QPushButton:checked{
+background-color:rgb(30, 81, 40);
+color:white;
+font-weight:bold;
+}
+
+QPushButton:hover{
+background-color:;
+	color: rgb(0, 111, 0);
+color:white;
+font-weight:bold;
+}</string>
+            </property>
+            <property name="text">
+             <string>About Us</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>C:/Users/Shivam/Downloads/round.png</normaloff>C:/Users/Shivam/Downloads/round.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
             <property name="checkable">
@@ -1141,7 +1447,7 @@ font-weight:bold;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>83</width>
+                   <width>788</width>
                    <height>3000</height>
                   </rect>
                  </property>
@@ -1250,8 +1556,8 @@ font-weight:bold;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>845</width>
-                   <height>3000</height>
+                   <width>805</width>
+                   <height>569</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1270,19 +1576,6 @@ font-weight:bold;
                   <property name="bottomMargin">
                    <number>0</number>
                   </property>
-                  <item>
-                   <widget class="QFrame" name="frame_3">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>3000</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                   </widget>
-                  </item>
                  </layout>
                 </widget>
                </widget>
@@ -1346,7 +1639,7 @@ font-weight:bold;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>83</width>
+                   <width>788</width>
                    <height>3000</height>
                   </rect>
                  </property>
