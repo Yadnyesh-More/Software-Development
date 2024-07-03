@@ -396,6 +396,65 @@ MiddleMan Broker
                     QMessageBox.warning(None,"Error","Entered email is not register !! ")
                 else:
                     QMessageBox.information(None,"Result","Login sucessful ")
+                    q = "update login set Date = now() where Email_id = %s;"
+                    self.curr.execute(q,(self.login_email))
+
+                    self.curr.execute("SELECT * from login where email_id = %s ",self.login_email)
+                    self.result = self.curr.fetchone()
+                    self.current_date = self.result[3]
+                    print(self.current_date)
+
+                    self.current_time = self.result[4]
+                    print(self.current_time)
+                    q = "update login set time = now() where Email_id = %s;"
+                    self.curr.execute(q,(self.login_email))
+
+                    self.a.commit()
+                    server = smtplib.SMTP("smtp.gmail.com",587)
+                    server.starttls()
+                    from_mail = "middleman3701@gmail.com"
+                    server.login(from_mail, "wtkh syvj zptd elfa")
+                    to_mail = self.login_email
+                    msg = EmailMessage()
+                    msg['Subject'] = "Welcome To MiddleMan"
+                    msg['From'] = from_mail
+                    msg['To'] = to_mail
+                    msg.set_content(f"""Subject: Thank You for Signing Up! Welcome to MiddleMan!
+
+Hi,
+
+Thank you for signing up with Middle Man! We’re thrilled to have you on board and excited to help you with all your property visit needs.
+
+What’s Next?
+
+    Explore Properties: Start browsing through our extensive list of properties available for visits.
+    Schedule Visits: Easily schedule property visits at your convenience with our user-friendly interface.
+    Secure Transactions: Enjoy peace of mind knowing your transactions are secure with us.
+
+Here’s How to Get Started:
+
+    Log In: Visit Middleman and log in using your new account.
+    Set Up Your Profile: Complete your profile to get the most out of our services.
+    Start Exploring: Begin your search and schedule your property visits.
+
+Need Help?
+
+Our support team is here for you 24/7. If you have any questions or need assistance, please reach out to us at [middleman3701@gmail.com/8097667158].
+
+Stay Connected!
+
+Follow us on insta for the latest updates and property listings.
+
+Once again, thank you for joining Middle Man. We look forward to assisting you with all your property visit needs!
+
+Best Regards,
+Middle Man
+middleman3701@gmail.com""")
+
+                    server.send_message(msg)
+
+                    print("Email Sent")
+
                     self.window_closer()
                     self.dash = subprocess.run(['python', 'DashBaord.py'])
 
