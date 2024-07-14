@@ -13,11 +13,14 @@
   <property name="windowTitle">
    <string>Frame</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(18, 140, 126);</string>
+  </property>
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>40</y>
+     <x>2</x>
+     <y>47</y>
      <width>501</width>
      <height>20</height>
     </rect>
@@ -26,30 +29,12 @@
     <enum>Qt::Orientation::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>121</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Refer and Earn</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>451</width>
+     <x>39</x>
+     <y>66</y>
+     <width>431</width>
      <height>21</height>
     </rect>
    </property>
@@ -59,7 +44,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(121, 121, 121);</string>
+    <string notr="true">color:rgb(37, 211, 102);</string>
    </property>
    <property name="text">
     <string>Provide Owner Contact &amp; Get up to 2000MM cash in your account directly</string>
@@ -68,9 +53,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>431</width>
+     <x>41</x>
+     <y>90</y>
+     <width>421</width>
      <height>31</height>
     </rect>
    </property>
@@ -78,83 +63,166 @@
     <string>Please enter correct owner's name &amp; phone to ensure faster response from us.</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>130</y>
-     <width>411</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Select City</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>200</y>
-     <width>411</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Owner contact number </string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>270</y>
-     <width>411</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Owner Name</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>340</y>
-     <width>411</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Select property type</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>410</y>
-     <width>411</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Tell us more </string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>480</y>
+     <y>464</y>
      <width>161</width>
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(37, 211, 102);
+border-radius:10px;</string>
+   </property>
    <property name="text">
     <string>Send Details</string>
    </property>
+  </widget>
+  <widget class="QLabel" name="refer_Heading">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>9</y>
+     <width>391</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Engravers MT</family>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Refer &amp; Earn</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>120</y>
+     <width>401</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Select City</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Owner contact number </string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Owner Name</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_4">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Select property type</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_5">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Tell us more </string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
