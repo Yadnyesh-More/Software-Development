@@ -43,10 +43,10 @@
     ```
 3. Install the required dependencies:
     ```bash
-  pip install pymysql
-  pip install fillpdf
-  pip install pyautogui
-  pip install twilio
+    pip install fillpdf
+    pip install twilio
+    pip install pyautogui
+    pip install functools
     ```
 
 ## Usage
