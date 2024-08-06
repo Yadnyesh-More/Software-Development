@@ -1,4 +1,3 @@
-from email.mime.application import MIMEApplication
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt,QPropertyAnimation)
@@ -11,8 +10,6 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QPlainTextEdit, QPushButton, QScrollArea, QSizePolicy,
     QSpacerItem, QStackedWidget, QTextEdit, QToolBox,
     QVBoxLayout, QWidget,QSlider,QMessageBox,QGraphicsOpacityEffect,QVBoxLayout,QHBoxLayout,QGroupBox,QFileDialog)
-import ressanket_rc
-import resshivam_rc
 import time
 import urllib.request
 import smtplib
@@ -20,6 +17,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
+from email.mime.application import MIMEApplication
 from email import encoders
 from email.utils import make_msgid,formataddr
 import os 
@@ -31,11 +29,12 @@ from fillpdf import fillpdfs
 import random
 import string
 import pyautogui as pg
+import ressanket_rc
+import resshivam_rc
 
 class Ui_MainWindow(object):
     # After coding 
     def __init__(self):
-        
         self.filter_frame_visible = False
         self.filter_frame = None
         self.logout_frame_visible = False
@@ -104,10 +103,9 @@ class Ui_MainWindow(object):
         self.amount_map = {}
         self.frame_carpent_cnt = 0
         self.no_of_frm = []
-
 #-------------------------------BACKEND------------------------------------------------------    
     def mysql(self):
-        self.a = psql.connect(host='localhost',port=3307,user='root',password='root',charset="utf8",database='middleman')
+        self.a = psql.connect(host='localhost',port=3306,user='root',password='root',charset="utf8",database='middleman')
         self.curr = self.a.cursor()
 #--------------------------------------------------------------------------------------------
     def check_carpent(self):
@@ -128,7 +126,6 @@ class Ui_MainWindow(object):
         else:
                 print("NOthing")    # Message box    
         print(price,desc)
-
 
     def check_plumbing(self):
         item = self.label_616.text()
@@ -182,7 +179,6 @@ class Ui_MainWindow(object):
             else:
                     print("Nothing selected")
                     
-
     def hide_frame_77(self):
         self.frame_77.hide()
         self.frame_78.setGeometry(10, 60, 380, 70)
@@ -266,8 +262,6 @@ class Ui_MainWindow(object):
         self.lineEdit_6.setEnabled(True)
         self.lineEdit_7.setEnabled(True)
         self.pushButton_43.clicked.connect(lambda :self.fetch_ac_user(ind))
-
-        
         line_edits = [self.lineEdit_2, self.lineEdit_4, self.lineEdit_5, self.lineEdit_6, self.lineEdit_7]
 
         # Check if any QLineEdit is None
@@ -289,8 +283,6 @@ class Ui_MainWindow(object):
         email = self.lineEdit_6.text()
         address = self.lineEdit_7.text()
         pin = self.lineEdit_5.text()
-
-        
         if index == 0:
                 service_type = "Normal AC Service"
                 desc1 = """1] Servicing of AC unit, cooling coil and drain tray"""
@@ -336,7 +328,6 @@ class Ui_MainWindow(object):
         
         q = "insert into user_services values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         self.curr.execute(q,(service_type,name,contact,email,address,pin,desc1,desc2,desc3,payble_amt))
-
         self.a.commit()
 #-----------------------------------------BACKEND--TO--FILL--THE--PDF--INVOICE----------------------------------------------
         username_prefix = name[:3].upper()
@@ -368,7 +359,6 @@ class Ui_MainWindow(object):
         print(name)
         fillpdfs.write_fillable_pdf(input_pdf_path = 'NEW AC.pdf',output_pdf_path = f'{name}.pdf',data_dict = data_dict2)
         print("done") 
-
 #---------------------------------------------------------------------------------------------------------------------------
         print(f"Service Type: {service_type}")
         print(f"User Name: {name}")
@@ -380,8 +370,7 @@ class Ui_MainWindow(object):
         print(f"desc2 : {desc2}")
         print(f"desc3 : {desc3}")
         print(f"Payble ampunt {payble_amt}")
-
-                
+               
     def ac_service(self,index):
         pl = self.comboBox_2.itemText(index)
         if index in [0,1,2,3,4,5]:
@@ -394,7 +383,6 @@ class Ui_MainWindow(object):
                 self.pushButton_42.setEnabled(False)
         else:
                 self.pushButton_42.setEnabled(False)
-                
         print(pl)
 
     def clck_more_info(self,property_detail):
@@ -516,7 +504,6 @@ class Ui_MainWindow(object):
                 self.snd_email_img.clicked.connect(lambda : self.get_an_email(property_detail))
                 self.get_an_info_frame.show()
                 self.get_an_visible = True
-                
         else:
                 self.get_an_info_frame.hide()
                 self.get_an_visible =False
@@ -728,11 +715,9 @@ class Ui_MainWindow(object):
         pass
 
     def noscratches_win_frame(self):
-
         if self.my_rewards_frame:
                 self.my_rewards_frame.close()
                 self.my_rewards_frame.hide()
-                
                 if not self.no_scratches_frame_visible:
                         self.no_scratches_frame = QFrame(self.frame_17)    
                         self.no_scratches_frame.setGeometry(925,70,400, 593)
@@ -13140,7 +13125,7 @@ class Ui_MainWindow(object):
         self.label_640 = QLabel(self.frame_Video)
         self.label_640.setObjectName(u"label_640")
         self.label_640.setMinimumSize(QSize(1280, 0))
-        self.label_640.setPixmap(QPixmap(r"C:\Users\Asus3\OneDrive\python\software development\Final\BackendRemain\images\MiddlemanHome.png"))
+        self.label_640.setPixmap(QPixmap(r"images\MiddlemanHome.png"))
         self.label_640.setScaledContents(True)
 
         self.verticalLayout_89.addWidget(self.label_640)
@@ -16665,13 +16650,12 @@ class Ui_MainWindow(object):
 "(Carpet Area)\n"
 "Sizes", None))
         self.label_105.setText(QCoreApplication.translate("MainWindow", u"Lashkaria Pearl, Link Road, Near Gandhi School, Oshiwara, Mumbai", None))
-    # retranslateUi
 
 if __name__ == "__main__":
-        import sys
-        app = QApplication(sys.argv)
-        MainWindow = QMainWindow()
-        ui = Ui_MainWindow()
-        ui.setupUi(MainWindow)
-        MainWindow.show()
-        sys.exit(app.exec())
+    import sys
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())
